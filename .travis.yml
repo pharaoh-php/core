@@ -47,8 +47,8 @@ before_install:
   - if [ $TASK_TESTS == 0 ] && [ $TASK_TESTS_COVERAGE == 1]; then travis_terminate 1; fi
 
   # Tasks: tags don't need coverage or cs-fix
-  - if [ $TRAVIS_TAG]; then export TASK_TESTS_COVERAGE=0; fi
-  - if [ $TRAVIS_TAG]; then export TASK_CS=0; fi
+  - if [ $TRAVIS_TAG ]; then export TASK_TESTS_COVERAGE=0; fi
+  - if [ $TRAVIS_TAG ]; then export TASK_CS=0; fi
 
   # Composer: parallel install plugin
   - travis_retry composer global require $DEFAULT_COMPOSER_FLAGS hirak/prestissimo
