@@ -26,7 +26,7 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
     {
         $profile = true;
         $name    = 'PharaohTest';
-        $config  = $this->createMock('Pharaoh\Config\ConfigInterface');
+        $config  = $this->createMock(ConfigInterface::class);
 
         $pharaoh = new PharaohForTest($config, $name, $profile);
 
@@ -42,7 +42,7 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
     {
         $profile = true;
         $name    = 'PharaohTest';
-        $config  = $this->createMock('Pharaoh\Config\ConfigInterface');
+        $config  = $this->createMock(ConfigInterface::class);
 
         $pharaoh = new PharaohForTest($config, $name, $profile);
 
