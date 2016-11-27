@@ -27,4 +27,20 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
         $this->assertFalse($pharaoh->isBooted());
         $this->assertLessThanOrEqual(microtime(true), $pharaoh->getStartTime());
     }
+
+    public function testClone()
+    {
+        $profile = true;
+        $name    = 'PharaohTest';
+        $config  = $this->createMock('Pharaoh\Config\ConfigInterface');
+
+        $pharaoh = new PharaohForTest($config, $name, $profile);
+
+        $clone = clone $pharaoh;
+
+        $this->assertEquals($profile, $clone->isProfilerEnabled());
+        $this->assertFalse($clone->isBooted());
+        $this->assertLessThanOrEqual(microtime(true), $clone->getStartTime());
+        $this->assertLessThan($clone->getStartTime(), $pharaoh->getStartTime());
+    }
 }
