@@ -1,0 +1,30 @@
+{
+    "name": "pharaoh/core",
+    "description": "Pharaoh core library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Steve Buzonas",
+            "email": "steve@fancyguy.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Pharaoh\\Core\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pharaoh\\Core\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">=7.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}
