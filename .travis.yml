@@ -29,6 +29,7 @@ matrix:
       env: COMPOSER_FLAGS="--ignore-platform-reqs"
   allow_failures:
     - php: nightly
+      env: TASK_CS=0
     - php: hhvm-stable
 
 cache:
