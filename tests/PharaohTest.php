@@ -32,7 +32,7 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($profile, $pharaoh->isProfilerEnabled());
         $this->assertFalse($pharaoh->isBooted());
-        $this->assertLessThanOrEqual(microtime(true), $pharaoh->getStartTime());
+        $this->assertLessThan(microtime(true), $pharaoh->getStartTime());
     }
 
     /**
@@ -50,7 +50,7 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($profile, $clone->isProfilerEnabled());
         $this->assertFalse($clone->isBooted());
-        $this->assertLessThanOrEqual(microtime(true), $clone->getStartTime());
+        $this->assertLessThan(microtime(true), $clone->getStartTime());
         $this->assertLessThan($clone->getStartTime(), $pharaoh->getStartTime());
     }
 
