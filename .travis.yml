@@ -16,20 +16,22 @@ addons:
 
 matrix:
   include:
+    - php: 7.0
+    - php: 7.1
+    - php: nightly
     - php:   hhvm-stable
       sudo:  required
       dist:  trusty
       group: edge
-    - php: 7.0
-    - php: 7.1
-    - php: nightly
   fast_finish: true
   allow_failures:
     - php: nightly
+    - php: hhvm-stable
 
 before_script:
   - rm -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
   - flags="--prefer-dist"
+  - if [[ $PHP = hhvm* ]]; then flags="$flags --ignore-platform-reqs"; fi
   - composer update $flags
 
 script:
