@@ -11,12 +11,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Pharaoh\\Core\\": "src/"
+            "Pharaoh\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Pharaoh\\Core\\Tests\\": "tests/"
+            "Pharaoh\\Tests\\": "tests/"
         }
     },
     "require": {
