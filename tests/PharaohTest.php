@@ -13,8 +13,14 @@ namespace Pharaoh\Tests;
 
 use Pharaoh\Tests\Fixtures\PharaohForTest;
 
+/**
+ * @coversDefaultClass \Pharaoh\Pharaoh
+ */
 class PharaohTest extends \PHPUnit_Framework_TestCase
 {
+    /**
+     * @covers ::__construct
+     */
     public function testConstructor()
     {
         $profile = true;
@@ -28,6 +34,9 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
         $this->assertLessThanOrEqual(microtime(true), $pharaoh->getStartTime());
     }
 
+    /**
+     * @covers ::__clone
+     */
     public function testClone()
     {
         $profile = true;
