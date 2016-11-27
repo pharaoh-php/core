@@ -1,0 +1,42 @@
+language: php
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+git:
+  depth: 1
+
+addons:
+  apt:
+    packages:
+      - parallel
+
+php:
+  - 7.0
+  - 7.1
+  - hhvm
+  - nightly
+
+matrix:
+  include:
+    - php:   hhvm-stable
+      sudo:  required
+      dist:  trusty
+      group: edge
+    - php: 7.0
+    - php: 7.1
+    - php: nightly
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+
+before_script:
+  - rm -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
+  - flags="--prefer-dist"
+  - composer update $flags
+
+script:
+  - ls -d tests/* | parallel --gnu --keep-order 'echo "Running {} tests"; ./vendor/bin/phpunit --colors=always {} || (echo -e "\e[41mFAILED\e[0m {}" && $(exit 1));'
