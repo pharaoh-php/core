@@ -21,6 +21,8 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @covers ::__construct
+     * @covers ::getStartTime
+     * @covers ::isProfilerEnabled
      */
     public function testConstructor()
     {
@@ -37,6 +39,10 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::__clone
+     * @covers ::getStartTime
+     * @covers ::isProfilerEnabled
+     *
+     * @uses Pharaoh\Pharaoh::__construct
      */
     public function testClone()
     {
@@ -56,6 +62,8 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::getConfigDirectory
+     *
+     * @uses Pharaoh\Pharaoh::__construct
      */
     public function testGetConfigDirectory()
     {
@@ -78,6 +86,8 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::getCacheDirectory
+     *
+     * @uses Pharaoh\Pharaoh::__construct
      */
     public function testGetCacheDirectory()
     {
@@ -100,6 +110,8 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @covers ::getLogDirectory
+     *
+     * @uses Pharaoh\Pharaoh::__construct
      */
     public function testGetLogDirectory()
     {
