@@ -23,7 +23,9 @@
         "php": ">=7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^5.6"
+        "friendsofphp/php-cs-fixer": "^2.0@dev",
+        "phpunit/phpunit": "^5.6",
+        "satooshi/php-coveralls": "^1.0"
     },
     "extra": {
         "branch-alias": {
@@ -33,7 +35,8 @@
     "scripts": {
         "test": [
             "@composer validate",
-            "phpunit"
+            "phpunit",
+            "php-cs-fixer fix -v --diff --dry-run"
         ]
     }
 }
