@@ -36,7 +36,7 @@ cache:
 
 before_install:
   # Configure: check phpdbg
-  - phpdbg --version 2> /dev/null || {echo 'No phpdbg'; export TASK_TESTS_COVERAGE=0; }
+  - phpdbg --version 2> /dev/null || { echo 'No phpdbg'; export TASK_TESTS_COVERAGE=0; }
 
   # Configure: turn off XDebug
   - phpenv config-rm xdebug.ini || return 0
