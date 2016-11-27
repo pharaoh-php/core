@@ -14,12 +14,6 @@ addons:
     packages:
       - parallel
 
-php:
-  - 7.0
-  - 7.1
-  - hhvm
-  - nightly
-
 matrix:
   include:
     - php:   hhvm-stable
