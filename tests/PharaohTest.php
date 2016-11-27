@@ -75,4 +75,26 @@ class PharaohTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($configDir, $pharaoh->getConfigDirectory());
     }
+
+    /**
+     * @covers ::getCacheDirectory
+     */
+    public function testGetCacheDirectory()
+    {
+        $profile = true;
+        $name    = 'PharaohTest';
+        $config  = $this->createMock(ConfigInterface::class);
+
+        $cacheDir = 'CacheDirectory';
+
+        $config
+            ->expects($this->once())
+            ->method('getCacheDirectory')
+            ->will($this->returnValue($cacheDir))
+        ;
+
+        $pharaoh = new PharaohForTest($config, $name, $profile);
+
+        $this->assertEquals($cacheDir, $pharaoh->getCacheDirectory());
+    }
 }
